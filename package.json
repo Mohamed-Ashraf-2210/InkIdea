@@ -1,0 +1,14 @@
+{
+  "name": "inkidea",
+  "version": "1.0.0",
+  "description": "Backend API for a blog application",
+  "main": "main.js",
+  "scripts": {
+    "dev" : "node --watch-path=. ./src/main.js",
+    "prod" : "node main.js"
+  },
+  "keywords": [],
+  "author": "Mohamed Ashraf (mohamed.ashraf.dev24@gmail.com)", 
+  "license": "ISC",
+  "type": "module"
+}
