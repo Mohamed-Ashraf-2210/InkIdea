@@ -1,1 +1,2 @@
-console.log("Hello World");
+import bootstarp from "./app.bootstrap.js";
+bootstarp()

@@ -4,8 +4,8 @@
   "description": "Backend API for a blog application",
   "main": "main.js",
   "scripts": {
-    "dev": "node --watch-path=. ./src/main.js",
-    "prod": "node main.js"
+    "dev": "cross-env NODE_ENV=development node --watch-path=. ./src/main.js",
+    "prod": "cross-env NODE_ENV=production node ./src/main.js"
   },
   "keywords": [],
   "author": "Mohamed Ashraf (mohamed.ashraf.dev24@gmail.com)",
