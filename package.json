@@ -4,11 +4,17 @@
   "description": "Backend API for a blog application",
   "main": "main.js",
   "scripts": {
-    "dev" : "node --watch-path=. ./src/main.js",
-    "prod" : "node main.js"
+    "dev": "node --watch-path=. ./src/main.js",
+    "prod": "node main.js"
   },
   "keywords": [],
-  "author": "Mohamed Ashraf (mohamed.ashraf.dev24@gmail.com)", 
+  "author": "Mohamed Ashraf (mohamed.ashraf.dev24@gmail.com)",
   "license": "ISC",
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "cross-env": "^10.1.0",
+    "dotenv": "^18.0.7",
+    "express": "^5.3.0",
+    "mongoose": "^9.11.1"
+  }
 }
