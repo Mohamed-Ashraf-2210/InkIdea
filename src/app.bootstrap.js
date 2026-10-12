@@ -2,7 +2,7 @@ import express from 'express'
 import { PORT } from '../config/config.service.js';
 import { connectDB } from './db/index.js';
 
-async function bootstarp() {
+async function bootstrap() {
     const app = express()
     await connectDB()
     app.use(express.json())
@@ -13,4 +13,4 @@ async function bootstarp() {
     app.listen(PORT, () => console.log(`app listen to port number ${PORT}`))
 }
 
-export default bootstarp
+export default bootstrap
