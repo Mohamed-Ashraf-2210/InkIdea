@@ -11,3 +11,5 @@ config({ path: resolve(`./config/${envPath[NODE_ENV]}`) })
 
 export const PORT = process.env.PORT ?? 9900
 export const DB_URI = process.env.DB_URI
+
+export const SALT_ROUND = parseInt(process.env.SALT_ROUND ?? 12)
