@@ -1,2 +1,2 @@
 export * from "./response/index.js"
-export * from "./security/hash.security.js"
+export * from "./security/index.js"

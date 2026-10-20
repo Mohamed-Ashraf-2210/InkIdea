@@ -1,5 +1,4 @@
-import { generateHash, verifyPassword } from "../../../common/utils/index.js"
-import { ConflictException, NotFoundException } from "../../../common/utils/response/error.response.js"
+import { generateEncryption, generateHash, verifyPassword, ConflictException, NotFoundException } from "../../../common/utils/index.js"
 import { create, findOne, UserModel } from "../../db/index.js"
 
 export const signup = async (input) => {
@@ -19,7 +18,7 @@ export const signup = async (input) => {
             name,
             email,
             password: await generateHash({ plaintext: password }),
-            phone,
+            phone: generateEncryption(phone),
             gender
         },
         model: UserModel
@@ -35,7 +34,7 @@ export const login = async (input) => {
     })
     if (!user) NotFoundException("Invalid Login")
 
-    const isPasswordMatch = await verifyPassword({ plaintext: password, storedHash: user.password })    
+    const isPasswordMatch = await verifyPassword({ plaintext: password, storedHash: user.password })
     if (!isPasswordMatch) NotFoundException("Invalid Login")
     return user
 }
