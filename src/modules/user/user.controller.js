@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { successResponse } from "../../../common/utils/index.js"
+import { localFileUpload, successResponse } from "../../../common/utils/index.js"
 import { authentication } from "../../middelware/index.js"
 import { TokenTypeEnum } from "../../../common/enums/index.js"
 import { profile, rotateToken } from "./user.service.js";
@@ -21,5 +21,9 @@ router.get("/rotate-token",
         return successResponse({ res, data: credentials })
     }
 )
+
+router.patch("/upload-file", localFileUpload({ customPath: "Icpc" }).single("attachment"), async (req, res, next) => {
+    return successResponse({ res, data: { file: req.file } })
+})
 
 export default router

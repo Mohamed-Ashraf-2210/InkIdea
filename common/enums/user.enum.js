@@ -1,6 +1,6 @@
 export const GenderEnum = Object.freeze({
-    MALE: 0,
-    FEMALE: 1
+    MALE: "male",
+    FEMALE: "female"
 })
 export const RoleEnum = Object.freeze({
     ADMIN: 0,

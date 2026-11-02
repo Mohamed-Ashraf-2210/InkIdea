@@ -1,0 +1,23 @@
+import multer from "multer"
+import { resolve } from "node:path"
+import { randomUUID } from "node:crypto"
+import { existsSync, mkdirSync } from "node:fs"
+
+export const localFileUpload = ({
+    customPath = "general"
+} = {}) => {
+    const storage = multer.diskStorage({
+        destination: function (req, file, cb) {
+            const fullPath = resolve(`../uploads/${customPath}`)
+            if (!existsSync(fullPath)) {
+                mkdirSync(fullPath, { recursive: true })
+            }
+            cb(null, fullPath)
+        },
+        filename: function (req, file, cb) {
+            const uniqeFileName = randomUUID() + '_' + file.originalname
+            cb(null, uniqeFileName)
+        }
+    })
+    return multer({ storage })
+}
