@@ -1,6 +1,6 @@
 import crypto from "node:crypto"
 import { ENC_SECRET_KEY, IV_LENGTH } from "../../../config/config.service.js"
-
+import { ErrorException } from "../index.js"
 
 const algorithm = "aes-256-cbc"
 
@@ -14,15 +14,15 @@ export const generateEncryption = (plaintext) => {
 
 export const generateDecryption = (cipherText) => {
     if (!cipherText || typeof cipherText !== 'string') {
-        throw ErrorException("Invalid encrypted data")
+        throw ErrorException({ message: "Invalid encrypted data" })
     }
 
     const [iv, encryptedData] = cipherText.split(":")
     if (!encryptedData) {
-        throw ErrorException("Invalid encrypted data format")
+        throw ErrorException({ message: "Invalid encrypted data format" })
     }
     if (iv.length != IV_LENGTH * 2) {
-        throw ErrorException("Invalid iv")
+        throw ErrorException({ message: "Invalid iv" })
     }
     const ivLikeBinary = Buffer.from(iv, 'hex')
     let decipherIV = crypto.createDecipheriv(algorithm, ENC_SECRET_KEY, ivLikeBinary)

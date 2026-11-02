@@ -1,8 +1,8 @@
 import jwt from "jsonwebtoken"
 import { ACCESS_TOKEN_EXPIERS_IN, ADMIN_ACCESS_TOKEN_SECRET_KEY, ADMIN_REFRESH_TOKEN_SECRET_KEY, REFRESH_TOKEN_EXPIRES_IN, USER_ACCESS_TOKEN_SECRET_KEY, USER_REFRESH_TOKEN_SECRET_KEY } from "../../../config/config.service.js"
 import { RoleEnum, TokenTypeEnum } from "../../enums/index.js"
-import { BadRequestException, ConflictException, NotFoundException } from "../index.js"
-import { findById } from "../../../src/db/index.js"
+import { BadRequestException, ConflictException, NotFoundException } from "../response/index.js"
+import { findById, UserModel } from "../../../src/db/index.js"
 
 export const generateToken = ({ payload = {}, secret = USER_ACCESS_TOKEN_SECRET_KEY, options = {} } = {}) => {
     return jwt.sign(payload, secret, options)
