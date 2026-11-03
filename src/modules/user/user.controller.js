@@ -2,7 +2,7 @@ import { Router } from "express";
 import { localFileUpload, successResponse } from "../../../common/utils/index.js"
 import { authentication } from "../../middelware/index.js"
 import { TokenTypeEnum } from "../../../common/enums/index.js"
-import { profile, rotateToken } from "./user.service.js";
+import { profile, rotateToken, profileImage } from "./user.service.js";
 const router = Router()
 
 router.get("/profile",
@@ -22,8 +22,12 @@ router.get("/rotate-token",
     }
 )
 
-router.patch("/upload-file", localFileUpload({ customPath: "Icpc" }).single("attachment"), async (req, res, next) => {
-    return successResponse({ res, data: { file: req.file } })
-})
+router.patch("/upload-file",
+    authentication(TokenTypeEnum.ACCESS),
+    localFileUpload({ customPath: "Icpc" }).single("attachment"),
+    async (req, res, next) => {
+        const user = await profileImage(req.file, req.user)
+        return successResponse({ res, data: user })
+    })
 
 export default router

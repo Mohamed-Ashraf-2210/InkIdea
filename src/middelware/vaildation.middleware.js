@@ -5,13 +5,8 @@ export const vaildationMiddelware = (schema) => {
         const { error, value } = schema.validate(req.body, {
             abortEarly: false
         })
-
-        if (error) {
-            throw BadRequestException({ message: "Validation Error" })
-        }
-
+        if (error) throw BadRequestException({ message: "Validation Error" })
         req.body = value
-
         next()
     }
 }

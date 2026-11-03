@@ -16,6 +16,7 @@ export const localFileUpload = ({
         },
         filename: function (req, file, cb) {
             const uniqeFileName = randomUUID() + '_' + file.originalname
+            file.finalPath = `uploads/${customPath}/${uniqeFileName}`
             cb(null, uniqeFileName)
         }
     })

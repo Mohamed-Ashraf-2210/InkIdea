@@ -1,5 +1,5 @@
 import { createLoginCredential } from "../../../common/utils/index.js"
-import {generateDecryption} from "../../../common/utils/index.js"
+import { generateDecryption } from "../../../common/utils/index.js"
 
 
 export const profile = (user) => {
@@ -9,4 +9,10 @@ export const profile = (user) => {
 
 export const rotateToken = async (user, issuer) => {
     return createLoginCredential(user, issuer)
+}
+
+export const profileImage = async (file, user) => {
+    user.profilePicture = file.finalPath
+    await user.save
+    return user
 }
