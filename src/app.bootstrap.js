@@ -1,7 +1,7 @@
 import express from 'express'
 import { PORT } from '../config/config.service.js';
 import { connectDB } from './db/index.js';
-import { globalErrorHandling } from '../common/utils/index.js';
+import { globalErrorHandling } from './common/utils/index.js';
 import { authRouter, userRouter } from './modules/index.js';
 
 async function bootstrap() {

@@ -1,5 +1,5 @@
 import crypto from "node:crypto"
-import { ENC_SECRET_KEY, IV_LENGTH } from "../../../config/config.service.js"
+import { ENC_SECRET_KEY, IV_LENGTH } from "../../../../config/config.service.js"
 import { ErrorException } from "../index.js"
 
 const algorithm = "aes-256-cbc"

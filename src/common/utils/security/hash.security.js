@@ -1,5 +1,5 @@
 import { hash, compare, genSalt } from 'bcrypt'
-import { SALT_ROUND } from '../../../config/config.service.js'
+import { SALT_ROUND } from '../../../../config/config.service.js'
 
 export const generateHash = async ({ plaintext, saltRounds = SALT_ROUND, minor = 'b' }) => {
     const generatedSalt = await genSalt(saltRounds, minor)

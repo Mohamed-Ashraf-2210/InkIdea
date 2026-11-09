@@ -1,5 +1,4 @@
-import { createLoginCredential } from "../../../common/utils/index.js"
-import { generateDecryption } from "../../../common/utils/index.js"
+import { createLoginCredential, generateDecryption } from "../../common/utils/index.js"
 
 
 export const profile = (user) => {

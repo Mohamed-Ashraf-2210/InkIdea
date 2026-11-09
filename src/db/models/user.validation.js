@@ -1,5 +1,5 @@
 import Joi from 'joi'
-import { GenderEnum } from '../../../common/enums/index.js'
+import { GenderEnum } from '../../common/enums/index.js'
 
 export const signupSchema = Joi.object({
     name: Joi.string()

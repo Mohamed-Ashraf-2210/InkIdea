@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { successResponse } from "../../../common/utils/index.js"
+import { successResponse } from "../../common/utils/index.js"
 import { login, signup } from "./auth.service.js";
 import { vaildationMiddelware } from "../../middelware/index.js";
 import { loginSchema, signupSchema } from "../../db/models/index.js";

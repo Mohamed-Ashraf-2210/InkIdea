@@ -1,5 +1,5 @@
-import { TokenTypeEnum } from '../../common/enums/index.js'
-import {decodeToken} from "../../common/utils/index.js"
+import { TokenTypeEnum } from '../common/enums/index.js'
+import {decodeToken} from "../common/utils/index.js"
 
 export const authentication = (tokenType = TokenTypeEnum.ACCESS) => {
     return async (req, _res, next) => {

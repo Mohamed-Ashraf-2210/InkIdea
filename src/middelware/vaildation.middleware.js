@@ -1,4 +1,4 @@
-import { BadRequestException } from "../../common/utils/index.js"
+import { BadRequestException } from "../common/utils/index.js"
 
 export const vaildationMiddelware = (schema) => {
     return (req, _res, next) => {

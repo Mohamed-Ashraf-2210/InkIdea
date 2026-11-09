@@ -1,7 +1,7 @@
 import { Router } from "express";
-import { localFileUpload, successResponse } from "../../../common/utils/index.js"
+import { localFileUpload, successResponse } from "../../common/utils/index.js"
 import { authentication } from "../../middelware/index.js"
-import { TokenTypeEnum } from "../../../common/enums/index.js"
+import { TokenTypeEnum } from "../../common/enums/index.js"
 import { profile, rotateToken, profileImage } from "./user.service.js";
 const router = Router()
 
