@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Backend API for a blog application",
   "main": "main.js",
+  "engines": {"node": "24.15.0"},
   "scripts": {
     "dev": "cross-env NODE_ENV=development node --watch-path=. ./src/main.js",
     "prod": "cross-env NODE_ENV=production node ./src/main.js"

@@ -8,7 +8,7 @@ async function bootstrap() {
     const app = express()
     await connectDB()
     app.use(express.json())
-    app.use('/uploads', express.static('../uploads/'))
+    app.use('/uploads', express.static('uploads/'))
     app.get('/', (req, res) => res.send('Hello World!'))
     app.use('/auth', authRouter)
     app.use('/user', userRouter)
