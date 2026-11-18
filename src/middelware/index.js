@@ -1,2 +1,2 @@
 export * from "./auth.middelware.js"
-export * from "./vaildation.middleware.js"
+export * from "./validation.middelware.js"

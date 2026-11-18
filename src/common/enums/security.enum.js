@@ -1,4 +1,4 @@
 export const TokenTypeEnum = Object.freeze({
-    ACCESS: 0,
-    REFRESH: 1
+    ACCESS: "access",
+    REFRESH: "refresh"
 })

@@ -10,11 +10,14 @@ const userSchema = new mongoose.Schema({
     email: {
         type: String,
         required: true,
-        unique: true
+        unique: true,
+        trim: true,
+        lowercase: true
     },
     password: {
         type: String,
-        required: true
+        required: true,
+        select: false
     },
     gender: {
         type: String,
@@ -22,12 +25,22 @@ const userSchema = new mongoose.Schema({
         default: GenderEnum.MALE
     },
     role: {
-        type: Number,
+        type: String,
         enum: Object.values(RoleEnum),
         default: RoleEnum.USER
     },
-    phone: String,
-    profilePicture: String,
+    phone: {
+        type: String,
+        trim: true
+    },
+    profilePicture: {
+        type: String,
+        trim: true
+    },
+    isActive: {
+        type: Boolean,
+        default: false
+    }
 }, {
     timestamps: true,
     collection: "Users",
